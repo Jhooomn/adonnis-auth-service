@@ -17,5 +17,13 @@
 | import './routes/customer'
 |
 */
-import 'App/modules/shared/routes/routes'
 
+import Route from '@ioc:Adonis/Core/Route'
+import TechnicalException from "App/Exceptions/shared/TechnicalException"
+
+Route.get('/', async () => {
+  const message = 'This is not a valid url'
+  const status = 403
+  const errorCode = 'NOT_AVAILABLE'
+  throw new TechnicalException(message, status, errorCode);
+});
